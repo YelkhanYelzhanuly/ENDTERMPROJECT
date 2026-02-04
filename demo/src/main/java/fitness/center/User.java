@@ -1,5 +1,7 @@
 package fitness.center;
 
+import java.util.Objects;
+
 public class User {
 
     private int id;
@@ -31,4 +33,23 @@ public class User {
     public String getName() { return name; }
     public String getLastName() { return lastName; }
     public double getWeight() { return weight; }
+
+    @Override
+    public String toString() {
+        return id + " | " + name + " " + lastName + " - " + weight + " кг";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return id == user.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
+
